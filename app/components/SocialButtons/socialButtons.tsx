@@ -6,7 +6,7 @@ const SocialButtons = () => {
     <HStack spacing={4}>
       <IconButton
         as="a"
-        href="https://www.github.com/2bttns"
+        href="https://www.github.com/2bttns/2bttns"
         target='_blank'
         aria-label="GitHub"
         icon={<FaGithub />}
