@@ -6,22 +6,30 @@ import Image from 'next/image'
 import Link from 'next/link';
 import EarlyAccessModal from './components/EarlyAccessModal/EarlyAccessModal';
 import SocialButtons from './components/SocialButtons/socialButtons';
+import Head from 'next/head';
 
 const Home: NextPage = () => {
     return (
         <Container maxW="container.xl">
+            <Head>
+                <meta
+                    title='description'
+                    content='Easily capture rich user preference data to accurately personalize content in your web app. 100% Javascript. Integrate with just a few lines of code.'
+                    key="desc"
+                />
+            </Head>
             <Box textAlign="center" py={10}>
-                <VStack>
+                <VStack spacing={5}>
                     <Image
-                        src="/2bttns-newest.gif"
+                        src="/demo.gif"
                         alt="2bttns Company Logo"
-                        width={240} // Set the size as needed
-                        height={150} // Set the size as needed
+                        width={400} // Set the size as needed
+                        height={850} // Set the size as needed
                         priority
                     />
-                    <Heading mb={4}>Tailoring Your App&apos;s Content with Every Click</Heading>
-                    <Text mb={8}>
-                        Seamlessly integrate an interactive two-button game to map user preferences and sculpt a truly personalized app journey <br /> – all in the universal language of JavaScript.
+                    <Heading>Personalize Content & Experiences</Heading>
+                    <Text>
+                        Quickly integrate an interactive two-button game to map user preferences and curate a truly personalized user experience <br /> – all in the universal language of JavaScript.
                     </Text>
                     
                     <Link href='https://docs.2bttns.com/' passHref target='_blank'>

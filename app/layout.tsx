@@ -6,7 +6,7 @@ import { Providers } from "./providers";
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'What will you make?',
+  title: '2bttns | Personalize your app',
   description: 'Easily capture rich user preference data to accurately personalize content in your web app. 100% Javascript. Integrate with just a few lines of code.',
 }
 
