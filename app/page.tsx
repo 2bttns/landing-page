@@ -29,7 +29,7 @@ const Home: NextPage = () => {
                     />
                     <Heading>Personalize Content & Experiences</Heading>
                     <Text>
-                        Quickly integrate an interactive two-button game to map user preferences and curate a truly personalized user experience <br /> – all in the universal language of JavaScript.
+                        Quickly integrate an interactive two-button game to map user preferences and curate a truly personalized user experience <br /> – all in the universal language of <>JavaScript</>.
                     </Text>
                     
                     <Link href='https://docs.2bttns.com/' passHref target='_blank'>
