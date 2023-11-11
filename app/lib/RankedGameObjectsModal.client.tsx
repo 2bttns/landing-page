@@ -16,8 +16,16 @@ import {
 } from "@chakra-ui/react";
 import { fetchRankedGameObjects } from './fetchRankedGameObjects.server';
 
+type GameObject = {
+    gameObject: {
+      id: string;
+      name: string;
+    };
+    score: number;
+  };
+
 const RankedGameObjectsModal: React.FC = () => {
-    const [gameObjects, setGameObjects] = useState([]); // Adjust the type according to your actual data structure
+    const [gameObjects, setGameObjects] = useState<GameObject[]>([]); // Adjust the type according to your actual data structure
     const [isValidResponse, setIsValidResponse] = useState<boolean>(false);
     const { isOpen, onOpen, onClose }: UseDisclosureReturn = useDisclosure();
 
