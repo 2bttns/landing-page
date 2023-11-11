@@ -18,13 +18,14 @@ import SocialButtons from "./components/SocialButtons/socialButtons";
 import Head from "next/head";
 import { twobttns } from "./lib/2bttns";
 import { RedirectType, redirect } from "next/navigation";
+import RankedGameObjectsModal from "./lib/RankedGameObjectsModal.client";
 
 const Home: NextPage = () => {
   async function play2bttnsDemo() {
     "use server";
     const url = twobttns.generatePlayUrl({
       gameId: process.env.DEMO_GAME_ID!,
-      playerId: crypto.randomUUID(),
+      playerId: "amer", // crypto.randomUUID()
       callbackUrl: process.env.VERCEL_URL,
     });
     return redirect(url, RedirectType.push);
@@ -101,6 +102,7 @@ const Home: NextPage = () => {
               </Button>
             </form>
           </FormControl>
+          <RankedGameObjectsModal/>
           <EarlyAccessModal />
           <Box m={"15px"}>
             <SocialButtons />
