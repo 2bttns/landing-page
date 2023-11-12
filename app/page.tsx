@@ -29,7 +29,7 @@ const Home: NextPage = () => {
       callbackUrl: process.env.VERCEL_URL,
     });
     // console.log(process.env.VERCEL_URL)
-    return redirect(url, RedirectType.replace);
+    return redirect(url, RedirectType.push);
   }
 
   return (
