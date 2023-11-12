@@ -29,7 +29,7 @@ const Home: NextPage = () => {
     const url = twobttns.generatePlayUrl({
       gameId: process.env.DEMO_GAME_ID!,
       playerId: playerID,                         // "amer", // crypto.randomUUID()
-      callbackUrl: process.env.VERCEL_URL,
+      callbackUrl: process.env.CALLBACK_URL,
     });
     return redirect(url, RedirectType.push);
   }
