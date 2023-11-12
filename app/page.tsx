@@ -28,8 +28,8 @@ const Home: NextPage = () => {
       playerId: "amer", // crypto.randomUUID()
       callbackUrl: process.env.VERCEL_URL,
     });
-    console.log(process.env.VERCEL_URL)
-    return redirect(url, RedirectType.push);
+    // console.log(process.env.VERCEL_URL)
+    return redirect(url, RedirectType.replace);
   }
 
   return (
