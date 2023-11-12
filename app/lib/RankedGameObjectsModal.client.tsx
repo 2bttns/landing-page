@@ -15,36 +15,52 @@ import {
     useDisclosure
 } from "@chakra-ui/react";
 import { fetchRankedGameObjects } from './fetchRankedGameObjects.server';
+import { Spinner } from "@chakra-ui/react";
 
 type GameObject = {
     gameObject: {
-      id: string;
-      name: string;
+        id: string;
+        name: string;
     };
     score: number;
-  };
+};
 
-const RankedGameObjectsModal: React.FC = () => {
+type RankedGameObjectsModalProps = {
+    isButtonDisabled: boolean;
+    playerId: string;
+};
+
+
+
+const RankedGameObjectsModal: React.FC<RankedGameObjectsModalProps> = ({ isButtonDisabled, playerId }) => {
     const [gameObjects, setGameObjects] = useState<GameObject[]>([]); // Adjust the type according to your actual data structure
     const [isValidResponse, setIsValidResponse] = useState<boolean>(false);
     const { isOpen, onOpen, onClose }: UseDisclosureReturn = useDisclosure();
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const handleOpenModal = async () => {
+        setIsLoading(true);
         onOpen();
-        const scores = await fetchRankedGameObjects();
-        if (scores) {
-            setGameObjects(scores);
-            setIsValidResponse(true);
-        } else {
-            setGameObjects([]);
-            setIsValidResponse(false);
+        try {
+            const scores = await fetchRankedGameObjects(playerId); // Pass playerId here
+            if (scores) {
+                setGameObjects(scores);
+                setIsValidResponse(true);
+            } else {
+                setGameObjects([]);
+                setIsValidResponse(false);
+            }
+        } catch (error) {
+            // handle error
+        } finally {
+            setIsLoading(false);
         }
     };
 
     return (
         <>
             <Button
-                bg="#8BC34A" // A shade of blue
+                bg="#8BC34A" // Light green color
                 color="white"
                 size="md"
                 height="48px"
@@ -60,6 +76,7 @@ const RankedGameObjectsModal: React.FC = () => {
                     boxShadow: "0 2px #555", // Further adjusts the shadow to deepen the pressed effect
                 }}
                 onClick={handleOpenModal}
+                isDisabled={isButtonDisabled} // Use the prop to control the disabled state
             >
                 Show Ranked Game Objects
             </Button>
@@ -67,10 +84,12 @@ const RankedGameObjectsModal: React.FC = () => {
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader>Your Ranked Results</ModalHeader>
+                    <ModalHeader>Ranked Game Objects</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        {isValidResponse ? (
+                        {isLoading ? (
+                            <Spinner /> // Render the spinner while loading
+                        ) : isValidResponse ? (
                             gameObjects.map((item) => (
                                 <Box key={item.gameObject.id} p={3} shadow="md" borderWidth="1px">
                                     <Text fontWeight="bold">{item.gameObject.name}</Text>
@@ -78,7 +97,7 @@ const RankedGameObjectsModal: React.FC = () => {
                                 </Box>
                             ))
                         ) : (
-                            <Text>Try the demo before viewing your results.</Text>
+                            <Text>You&apos;ll need to play 2bttns first.</Text>
                         )}
                     </ModalBody>
                     <ModalFooter>

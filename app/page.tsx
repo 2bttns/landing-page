@@ -21,14 +21,16 @@ import { RedirectType, redirect } from "next/navigation";
 import RankedGameObjectsModal from "./lib/RankedGameObjectsModal.client";
 
 const Home: NextPage = () => {
+
+  const playerID = crypto.randomUUID()
+
   async function play2bttnsDemo() {
     "use server";
     const url = twobttns.generatePlayUrl({
       gameId: process.env.DEMO_GAME_ID!,
-      playerId: "amer", // crypto.randomUUID()
+      playerId: playerID,                         // "amer", // crypto.randomUUID()
       callbackUrl: process.env.VERCEL_URL,
     });
-    // console.log(process.env.VERCEL_URL)
     return redirect(url, RedirectType.push);
   }
 
@@ -103,7 +105,7 @@ const Home: NextPage = () => {
               </Button>
             </form>
           </FormControl>
-          <RankedGameObjectsModal/>
+          <RankedGameObjectsModal isButtonDisabled={false} playerId={playerID}/>
           <EarlyAccessModal />
           <Box m={"15px"}>
             <SocialButtons />

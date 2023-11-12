@@ -1,11 +1,11 @@
-'use server';
+'use server'
 
 import { twobttns } from '../lib/2bttns';
 
-export async function fetchRankedGameObjects() {
+export async function fetchRankedGameObjects(playerId: string) {
     try {
         const response = await twobttns.callApi("/game-objects/ranked", "get", {
-            playerId: "amer",
+            playerId: playerId,
             inputTags: "activities",
             outputTag: "activities"
         });
