@@ -84,7 +84,7 @@ const RankedGameObjectsModal: React.FC<RankedGameObjectsModalProps> = ({ isButto
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader>Ranked Game Objects</ModalHeader>
+                    <ModalHeader>Ranked Game Objects for {playerId}</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
                         {isLoading ? (
