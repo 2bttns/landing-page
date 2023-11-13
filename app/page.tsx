@@ -1,37 +1,52 @@
 // pages/index.tsx
+"use client";
 import {
   Box,
+  Button,
   Container,
+  FormControl,
   Heading,
   Text,
-  Button,
-  Center,
   VStack,
-  FormControl,
 } from "@chakra-ui/react";
 import type { NextPage } from "next";
-import Features from "./components/Features/features";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import EarlyAccessModal from "./components/EarlyAccessModal/EarlyAccessModal";
+import Features from "./components/Features/features";
 import SocialButtons from "./components/SocialButtons/socialButtons";
-import Head from "next/head";
-import { twobttns } from "./lib/2bttns";
-import { RedirectType, redirect } from "next/navigation";
 import RankedGameObjectsModal from "./lib/RankedGameObjectsModal.client";
+import play2bttnsDemo from "./lib/play2bttnsDemo";
+
+const PLAYER_ID_LOCAL_STORAGE_KEY = "player_id";
 
 const Home: NextPage = () => {
+  const [playerId, setPlayerId] = useState<string | null>(null);
 
-  const playerID = crypto.randomUUID()
+  useEffect(() => {
+    const playerIdFromStorage = localStorage.getItem(
+      PLAYER_ID_LOCAL_STORAGE_KEY
+    );
+    if (playerIdFromStorage === null) {
+      console.info(`Generating new...`);
+      const generatedId = crypto.randomUUID();
+      localStorage.setItem(PLAYER_ID_LOCAL_STORAGE_KEY, generatedId);
+      setPlayerId(generatedId);
+    }
+    setPlayerId(playerIdFromStorage);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  async function play2bttnsDemo() {
-    "use server";
-    const url = twobttns.generatePlayUrl({
-      gameId: process.env.DEMO_GAME_ID!,
-      playerId: playerID,                         // "amer", // crypto.randomUUID()
-      callbackUrl: process.env.CALLBACK_URL,
-    });
-    return redirect(url, RedirectType.push);
+  useEffect(() => {
+    if (playerId !== null) {
+      console.info(`Your ID: ${playerId}`);
+    }
+  }, [playerId]);
+
+  if (playerId === null) {
+    return null;
   }
 
   return (
@@ -82,7 +97,7 @@ const Home: NextPage = () => {
           </Link>
 
           <FormControl>
-            <form action={play2bttnsDemo}>
+            <form action={play2bttnsDemo.bind(null, playerId)}>
               <Button
                 type="submit"
                 bg="#ffd230"
@@ -105,7 +120,10 @@ const Home: NextPage = () => {
               </Button>
             </form>
           </FormControl>
-          <RankedGameObjectsModal isButtonDisabled={false} playerId={playerID}/>
+          <RankedGameObjectsModal
+            isButtonDisabled={false}
+            playerId={playerId}
+          />
           <EarlyAccessModal />
           <Box m={"15px"}>
             <SocialButtons />
