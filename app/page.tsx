@@ -19,6 +19,7 @@ import Features from "./components/Features/features";
 import SocialButtons from "./components/SocialButtons/socialButtons";
 import RankedGameObjectsModal from "./lib/RankedGameObjectsModal.client";
 import play2bttnsDemo from "./lib/play2bttnsDemo";
+import { v4 as uuidv4 } from "uuid";
 
 const PLAYER_ID_LOCAL_STORAGE_KEY = "player_id";
 
@@ -31,7 +32,7 @@ const Home: NextPage = () => {
     );
     if (playerIdFromStorage === null) {
       console.info(`Generating new demo player_id...`);
-      const generatedId = crypto.randomUUID();
+      const generatedId = uuidv4();
       localStorage.setItem(PLAYER_ID_LOCAL_STORAGE_KEY, generatedId);
       setPlayerId(generatedId);
     } else {
