@@ -44,8 +44,6 @@ const RankedGameObjectsModal: React.FC<RankedGameObjectsModalProps> = ({
     onOpen();
     try {
       const scores = await fetchRankedGameObjects(playerId); // Pass playerId here
-      console.log("scores");
-      console.log(scores);
       if (scores) {
         setGameObjects(scores);
         setIsValidResponse(true);
@@ -87,7 +85,7 @@ const RankedGameObjectsModal: React.FC<RankedGameObjectsModalProps> = ({
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Ranked Game Objects for {playerId}</ModalHeader>
+          <ModalHeader>Ranked Game Objects</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             {isLoading ? (
