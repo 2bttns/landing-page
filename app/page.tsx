@@ -14,6 +14,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import EarlyAccessModal from "./components/EarlyAccessModal/EarlyAccessModal";
 import Features from "./components/Features/features";
 import SocialButtons from "./components/SocialButtons/socialButtons";
@@ -31,7 +32,7 @@ const Home: NextPage = () => {
     );
     if (playerIdFromStorage === null) {
       console.info(`Generating new demo player_id...`);
-      const generatedId = crypto.randomUUID();
+      const generatedId = uuidv4();
       localStorage.setItem(PLAYER_ID_LOCAL_STORAGE_KEY, generatedId);
       setPlayerId(generatedId);
     } else {
@@ -98,7 +99,12 @@ const Home: NextPage = () => {
           </Link>
 
           <FormControl>
-            <form action={play2bttnsDemo.bind(null, playerId)}>
+            <form
+              action={play2bttnsDemo.bind(null, {
+                callbackUrl: window.location.href,
+                playerId,
+              })}
+            >
               <Button
                 type="submit"
                 bg="#ffd230"
