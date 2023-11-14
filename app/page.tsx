@@ -30,17 +30,19 @@ const Home: NextPage = () => {
       PLAYER_ID_LOCAL_STORAGE_KEY
     );
     if (playerIdFromStorage === null) {
-      // console.info(`Generating new...`);
+      console.info(`Generating new demo player_id...`);
       const generatedId = crypto.randomUUID();
       localStorage.setItem(PLAYER_ID_LOCAL_STORAGE_KEY, generatedId);
       setPlayerId(generatedId);
+    } else {
+      setPlayerId(playerIdFromStorage);
     }
-    setPlayerId(playerIdFromStorage);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     if (playerId !== null) {
+      console.info(`Your demo player_id: ${playerId}`);
     }
   }, [playerId]);
 

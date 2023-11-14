@@ -44,8 +44,6 @@ const RankedGameObjectsModal: React.FC<RankedGameObjectsModalProps> = ({
     onOpen();
     try {
       const scores = await fetchRankedGameObjects(playerId); // Pass playerId here
-      // console.log("scores");
-      // console.log(scores);
       if (scores) {
         setGameObjects(scores);
         setIsValidResponse(true);
