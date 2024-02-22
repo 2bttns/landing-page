@@ -58,7 +58,7 @@ const EmailInputForm: React.FC = () => {
             width={"50vw"}
           />
         </FormControl>
-        <Button type='submit' colorScheme='green' width={"50vw"}>Gain Access</Button>
+        <Button type='submit' colorScheme='green' width={"50vw"}>Stay Updated</Button>
       </VStack>
       </Center>
     </form>
