@@ -60,17 +60,17 @@ const Home: NextPage = () => {
           key="desc"
         />
       </Head>
-      <Box textAlign="center" py={10}>
+      <Box textAlign="center" py={20}>
         <VStack spacing={5}>
           <Image
             src="/2gif.gif"
             alt="2bttns Company Logo"
             width={200} // Set the size as needed
-            height={425} // Set the size as needed
+            height={200} // Set the size as needed
             priority
           />
           <Heading>Personalize Content & Experiences</Heading>
-          <Text>
+          <Text py={8} fontSize={"18px"}>
             Collect user data ethically by adding a fun two-button game in your app. <br /> –
             all in the universal language of <>JavaScript</>.
           </Text>
@@ -156,7 +156,7 @@ const Home: NextPage = () => {
           <Box m={"15px"}>
             <SocialButtons />
           </Box>
-          <Features />
+          {/* <Features /> */}
         </VStack>
       </Box>
     </Container>
