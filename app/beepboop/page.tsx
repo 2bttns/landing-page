@@ -72,10 +72,11 @@ const Home: NextPage = () => {
           </Link>
             <Heading size={"3xl"}>You solved it! 🎉</Heading>
             <Text p={"30px"}>
-            Oh hey. That was pretty fast. Great job. To be honest we did not think you would solve it that fast. <br/> Come find us at Hack for Impact on feb 25th and show us this web page. <br/> Can we have your email to keep track of you?
+            Oh hey. That was pretty fast. Great job. <br/> First, star⭐️ our repo <a href={"https://www.github.com/2bttns/2bttns"}><b>here</b></a> <br/> Next, come find us at Hack for Impact on feb 25th and show us this web page. <br/> Can we have your email to keep track of you?
             </Text>
           </VStack>
         <EmailForm />
+        
       </Box>
     </Container>
   );
