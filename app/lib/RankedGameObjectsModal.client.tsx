@@ -79,13 +79,13 @@ const RankedGameObjectsModal: React.FC<RankedGameObjectsModalProps> = ({
         onClick={handleOpenModal}
         isDisabled={isButtonDisabled} // Use the prop to control the disabled state
       >
-        Show Ranked Game Objects
+        View Demo Results
       </Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Ranked Game Objects</ModalHeader>
+          <ModalHeader>Game Scores</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             {isLoading ? (
@@ -103,7 +103,7 @@ const RankedGameObjectsModal: React.FC<RankedGameObjectsModalProps> = ({
                 </Box>
               ))
             ) : (
-              <Text>You&apos;ll need to play 2bttns first.</Text>
+              <Text>You&apos;ll need to play the demo first.</Text>
             )}
           </ModalBody>
           <ModalFooter>

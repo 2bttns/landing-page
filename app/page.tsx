@@ -63,16 +63,15 @@ const Home: NextPage = () => {
       <Box textAlign="center" py={10}>
         <VStack spacing={5}>
           <Image
-            src="/demo.gif"
+            src="/2gif.gif"
             alt="2bttns Company Logo"
-            width={400} // Set the size as needed
-            height={850} // Set the size as needed
+            width={200} // Set the size as needed
+            height={425} // Set the size as needed
             priority
           />
           <Heading>Personalize Content & Experiences</Heading>
           <Text>
-            Quickly integrate an interactive two-button game to map user
-            preferences and curate a truly personalized user experience <br /> –
+            Collect user data ethically by adding a fun two-button game in your app. <br /> –
             all in the universal language of <>JavaScript</>.
           </Text>
 
@@ -94,7 +93,7 @@ const Home: NextPage = () => {
                 boxShadow: "0 2px #555", // Further adjusts the shadow to deepen the pressed effect
               }}
             >
-              Get Started
+              Documentation 📖
             </Button>
           </Link>
 
@@ -123,7 +122,7 @@ const Home: NextPage = () => {
                   boxShadow: "0 2px #555", // Further adjusts the shadow to deepen the pressed effect
                 }}
               >
-                Try the Demo!
+                Play a demo 🕹️
               </Button>
             </form>
           </FormControl>
