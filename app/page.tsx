@@ -131,6 +131,28 @@ const Home: NextPage = () => {
             playerId={playerId}
           />
           <EarlyAccessModal />
+          <Link href="mailto:amer@2bttns.com" passHref target="_blank">
+            <Button
+              bg="#008080" // Updated to a distinct teal color
+              color={"white"}
+              size="md"
+              height="48px"
+              width="400px"
+              position="relative"
+              boxShadow="0 6px #555" // Creates the initial depth effect
+              _hover={{
+                top: "2px",
+                boxShadow: "0 4px #555", // Adjusts the shadow to make it look like the button is being pressed
+              }}
+              _active={{
+                top: "4px",
+                boxShadow: "0 2px #555", // Further adjusts the shadow to deepen the pressed effect
+              }}
+            >
+              Contact us 📧
+            </Button>
+          </Link>
+
           <Box m={"15px"}>
             <SocialButtons />
           </Box>
