@@ -20,6 +20,7 @@ import Features from "./components/Features/features";
 import SocialButtons from "./components/SocialButtons/socialButtons";
 import RankedGameObjectsModal from "./lib/RankedGameObjectsModal.client";
 import play2bttnsDemo from "./lib/play2bttnsDemo";
+import Banner from "./components/Banner/Banner";
 
 const PLAYER_ID_LOCAL_STORAGE_KEY = "player_id";
 
@@ -52,7 +53,7 @@ const Home: NextPage = () => {
   }
 
   return (
-    <Container maxW="container.xl">
+    <Container maxW="100vw">
       <Head>
         <meta
           title="description"
@@ -60,7 +61,8 @@ const Home: NextPage = () => {
           key="desc"
         />
       </Head>
-      <Box textAlign="center" py={20}>
+      <Banner/>
+      <Box textAlign="center" py={13}>
         <VStack spacing={5}>
           <Image
             src="/2gif.gif"

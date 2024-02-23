@@ -17,6 +17,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import EmailForm from "../components/EmailForm/EmailForm"
+import Banner from "../components/Banner/Banner";
 
 const PLAYER_ID_LOCAL_STORAGE_KEY = "player_id";
 
@@ -57,7 +58,9 @@ const Home: NextPage = () => {
           key="desc"
         />
       </Head>
+      <Banner/>
       <Box textAlign="center" py={10}>
+      
       <VStack
       spacing={5}
           >
