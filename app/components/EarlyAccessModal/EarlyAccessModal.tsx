@@ -13,6 +13,7 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
+import { track } from '@vercel/analytics';
 
 const EarlyAccessModal: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -41,6 +42,7 @@ const EarlyAccessModal: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    track('Submitted_Email');
     sendToDiscord(email);
     setEmail('');
     onClose();

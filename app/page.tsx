@@ -21,6 +21,7 @@ import SocialButtons from "./components/SocialButtons/socialButtons";
 import RankedGameObjectsModal from "./lib/RankedGameObjectsModal.client";
 import play2bttnsDemo from "./lib/play2bttnsDemo";
 import Banner from "./components/Banner/Banner";
+import { track } from '@vercel/analytics';
 
 const PLAYER_ID_LOCAL_STORAGE_KEY = "player_id";
 
@@ -93,6 +94,9 @@ const Home: NextPage = () => {
               _active={{
                 top: "4px",
                 boxShadow: "0 2px #555", // Further adjusts the shadow to deepen the pressed effect
+              }}
+              onClick={() => {
+                track('Clicked_Documentation')
               }}
             >
               Documentation 📖

@@ -16,6 +16,7 @@ import {
 } from "@chakra-ui/react";
 import { fetchRankedGameObjects } from "./fetchRankedGameObjects.server";
 import { Spinner } from "@chakra-ui/react";
+import { track } from '@vercel/analytics';
 
 type GameObject = {
   gameObject: {
@@ -40,6 +41,7 @@ const RankedGameObjectsModal: React.FC<RankedGameObjectsModalProps> = ({
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleOpenModal = async () => {
+    track('Opened_ViewResultsModal')
     setIsLoading(true);
     onOpen();
     try {

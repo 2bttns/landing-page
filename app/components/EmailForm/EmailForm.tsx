@@ -8,6 +8,7 @@ import {
   VStack,
   Center
 } from '@chakra-ui/react';
+import { track } from '@vercel/analytics';
 
 const EmailInputForm: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -35,6 +36,7 @@ const EmailInputForm: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    track('Submitted_Email');
     sendToDiscord(email);
     setEmail(''); // Clear the input after submission
   };
