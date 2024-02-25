@@ -128,7 +128,7 @@ const Home: NextPage = () => {
                   boxShadow: "0 2px #555", // Further adjusts the shadow to deepen the pressed effect
                 }}
               >
-                Play a demo 🕹️
+                Play Now 🕹️
               </Button>
             </form>
           </FormControl>

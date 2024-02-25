@@ -87,7 +87,7 @@ const RankedGameObjectsModal: React.FC<RankedGameObjectsModalProps> = ({
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Game Scores</ModalHeader>
+          <ModalHeader>2bttns Game Results</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             {isLoading ? (
@@ -105,7 +105,7 @@ const RankedGameObjectsModal: React.FC<RankedGameObjectsModalProps> = ({
                 </Box>
               ))
             ) : (
-              <Text>You&apos;ll need to play the demo first.</Text>
+              <Text>You&apos;ll need to try the demo first by pressing Play Now 🕹️.</Text>
             )}
           </ModalBody>
           <ModalFooter>
