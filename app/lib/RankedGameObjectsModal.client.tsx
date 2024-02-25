@@ -81,7 +81,7 @@ const RankedGameObjectsModal: React.FC<RankedGameObjectsModalProps> = ({
         onClick={handleOpenModal}
         isDisabled={isButtonDisabled} // Use the prop to control the disabled state
       >
-        View Demo Results
+        Your Scores
       </Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
