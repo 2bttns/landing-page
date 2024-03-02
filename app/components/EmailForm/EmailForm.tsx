@@ -17,7 +17,7 @@ const EmailInputForm: React.FC = () => {
     if (emailAddress) {
       try {
         const webhookContent = JSON.stringify({
-          content: `New email submission: ${emailAddress}`,
+          content: `H4I | Email Submission: ${emailAddress}`,
         });
 
         await fetch(process.env.NEXT_PUBLIC_TWOBTTNS_DISCORD_WEBHOOK as string, {

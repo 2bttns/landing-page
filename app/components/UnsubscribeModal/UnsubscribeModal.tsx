@@ -23,7 +23,7 @@ const EarlyAccessModal: React.FC = () => {
     if (emailAddress) {
       try {
         const webhookContent = JSON.stringify({
-          content: `NEWSLETTER | New 2bttns stay-updated list member: ${emailAddress}`,
+          content: `CAN-SPAM | REMOVE REQUESTED: ${emailAddress}`,
         });
 
         await fetch(process.env.NEXT_PUBLIC_TWOBTTNS_DISCORD_WEBHOOK as string, {
@@ -71,7 +71,7 @@ const EarlyAccessModal: React.FC = () => {
   }}
   onClick={onOpen}
 >
-  Newsletter
+  Unsubscribe
 </Button>
 
 
@@ -79,7 +79,7 @@ const EarlyAccessModal: React.FC = () => {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Stay up to date</ModalHeader>
+          <ModalHeader>Unsubscribe</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <form onSubmit={handleSubmit}>
@@ -91,7 +91,7 @@ const EarlyAccessModal: React.FC = () => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </FormControl>
-              <Text mt={4}>We won&apos;t share your email with anyone.</Text>
+              <Text mt={4}> Are you sure?</Text>
               <Button
                 mt={4}
                 colorScheme="teal"
@@ -99,7 +99,7 @@ const EarlyAccessModal: React.FC = () => {
                 width="full"
                 boxShadow="md"
               >
-                Sign Up
+                Bye.
               </Button>
             </form>
           </ModalBody>

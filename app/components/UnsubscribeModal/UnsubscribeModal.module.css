@@ -1,0 +1,29 @@
+/* EarlyAccessModal.module.css */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .modal {
+    width: 40%;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+  }
+  
+  /* Add responsive styles as required */
+  @media (max-width: 600px) {
+    .modal {
+      width: 80%;
+    }
+  }
+  
+  /* Continue with other styles */
+  
