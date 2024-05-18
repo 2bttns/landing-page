@@ -62,7 +62,7 @@ const Home: NextPage = () => {
           key="desc"
         />
       </Head>
-      <Banner/>
+      {/* <Banner/> */}
       <Box textAlign="center" py={13}>
         <VStack spacing={5}>
           <Image

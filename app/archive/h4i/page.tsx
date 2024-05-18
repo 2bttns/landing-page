@@ -16,8 +16,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import EmailForm from "../components/EmailForm/EmailForm"
-import Banner from "../components/Banner/Banner";
+import EmailForm from "../../components/EmailForm/EmailForm"
+import Banner from "../../components/Banner/Banner";
 
 const PLAYER_ID_LOCAL_STORAGE_KEY = "player_id";
 
