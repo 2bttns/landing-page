@@ -50,29 +50,29 @@ const EarlyAccessModal: React.FC = () => {
 
   return (
     <>
-<Button
-  bg="#42A5F5"
-  size='md'
-  height='48px'
-  width='400px'
-  position="relative"
-  // bg="blue.400"
-  color="white"
-  boxShadow="0 6px #2b6cb0" // Creates the initial depth effect
-  _hover={{
-    bg: 'blue.500',
-    top: "2px",
-    boxShadow: "0 4px #2a69ac" // Adjusts the shadow to make it look like the button is being pressed
-  }}
-  _active={{
-    bg: 'blue.600',
-    top: "4px",
-    boxShadow: "0 2px #1e4e8c" // Further adjusts the shadow to deepen the pressed effect
-  }}
-  onClick={onOpen}
->
-  Newsletter
-</Button>
+      <Button
+        bg="#42A5F5" // Blue color
+        color="white"
+        size="md"
+        height="48px"
+        width="140px"
+        position="relative"
+        mx="15px"
+        // boxShadow="0 6px #2b6cb0" // Adjust the depth effect color to match
+        _hover={{
+          bg: '#4a90e2', // Lighter blue on hover
+          top: "2px",
+          boxShadow: "0 4px #2a69ac" // Adjust the shadow to make it look like the button is being pressed
+        }}
+        _active={{
+          bg: '#3182ce', // Even lighter blue on active
+          top: "4px",
+          boxShadow: "0 2px #1e4e8c" // Further adjusts the shadow to deepen the pressed effect
+        }}
+        onClick={onOpen}
+      >
+        Newsletter
+      </Button>
 
 
 

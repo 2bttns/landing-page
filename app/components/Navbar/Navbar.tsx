@@ -3,6 +3,8 @@ import { Box, Flex, Button } from '@chakra-ui/react';
 import Image from 'next/image'
 import SocialButtons from '../SocialButtons/socialButtons';
 import Link from 'next/link';
+import EmailForm from '../EmailForm/EmailForm';
+import EarlyAccessModal from '../EarlyAccessModal/EarlyAccessModal';
 
 const NavBar = () => {
     return (
@@ -15,7 +17,7 @@ const NavBar = () => {
 
                 <Flex>
                     <SocialButtons />
-                    <Link href="mailto:amer@2bttns.com" passHref target="_blank">
+                    {/* <Link href="mailto:amer@2bttns.com" passHref target="_blank">
                         <Button
                             bg="#506CD4"
                             color={"white"}
@@ -35,7 +37,8 @@ const NavBar = () => {
                         >
                             Share Feedback
                         </Button>
-                    </Link>
+                    </Link> */}
+                    <EarlyAccessModal/>
                 </Flex>
             </Flex>
         </Box>
