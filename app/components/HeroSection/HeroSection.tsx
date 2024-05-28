@@ -14,8 +14,8 @@ export const HeroSection = ({ playerId }: HeroSectionProps) => {
     });
   };
 
-  const stackDirection = useBreakpointValue({ base: 'column', md: 'row' });
-
+  const stackDirection = useBreakpointValue<'column' | 'row'>({ base: 'column', md: 'row' });
+  
   return (
     <Center height="100vh" width="100vw">
       <VStack
