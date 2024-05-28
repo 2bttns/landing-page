@@ -1,7 +1,6 @@
 // pages/index.tsx
 "use client";
 import {
-  Center,
   Container,
 } from "@chakra-ui/react";
 import Head from "next/head";
@@ -10,7 +9,6 @@ import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { HeroSection } from "./components/HeroSection/HeroSection";  // Make sure to create and import HeroSection component
 import NavBar from "./components/Navbar/Navbar";
-import WavingGrid from './components/WavingGrid/WavingGrid';
 
 const PLAYER_ID_LOCAL_STORAGE_KEY = "player_id";
 
