@@ -10,10 +10,9 @@ export type Play2bttnsDemoParams = {
 };
 
 export default async function play2bttnsDemo(
-  { callbackUrl, playerId }: Play2bttnsDemoParams,
-  formData: FormData
+  { callbackUrl, playerId }: Play2bttnsDemoParams
 ) {
-  track('Played_Demo')
+  // track('Played_Demo')
   const url = twobttns.generatePlayUrl({
     gameId: process.env.DEMO_GAME_ID!,
     callbackUrl,
