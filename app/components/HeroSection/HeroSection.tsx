@@ -1,4 +1,4 @@
-import { VStack, Heading, Text, Button, Center, Stack, useBreakpointValue } from '@chakra-ui/react';
+import { VStack, Heading, Text, Button, Center, Stack, useBreakpointValue, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure } from '@chakra-ui/react';
 import Link from 'next/link';
 import play2bttnsDemo from '@/app/lib/play2bttnsDemo';
 import RankedGameObjectsModal from '@/app/lib/RankedGameObjectsModal.client';
@@ -8,7 +8,13 @@ interface HeroSectionProps {
 }
 
 export const HeroSection = ({ playerId }: HeroSectionProps) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   const handlePlayClick = () => {
+    onOpen();
+  };
+
+  const handlePlayNowClick = () => {
     play2bttnsDemo({
       callbackUrl: window.location.href,
       playerId,
@@ -36,39 +42,25 @@ export const HeroSection = ({ playerId }: HeroSectionProps) => {
           <br /> – all in the universal language of JavaScript.
         </Text>
         <Stack direction={stackDirection} spacing={4}>
-          {/* <Button
-            onClick={handlePlayClick}
-            bg="#ffd230"
-            color="black"
-            size="lg"
-            height="60px"
-            width="250px"
-            fontSize="18px"
-            boxShadow="0 6px #555"
-            _hover={{ boxShadow: "0 8px #555" }}
-            _active={{ boxShadow: "0 4px #555" }}
-          >
-            Try Demo Now 🕹️
-          </Button> */}
           <VStack>
-          <Button
-            onClick={handlePlayClick}
-            as="a"
-            bgGradient="linear(to-r, blue.200, purple.200)"  // Lighter gradient
-            color="black"  // Adjusted text color for better visibility on light background
-            size="lg"
-            height="60px"
-            width="250px"
-            fontSize="18px"
-            boxShadow="0 2px 4px rgba(0, 0, 0, 0.3)"  // Lighter and softer shadow
-            _hover={{
-              bgGradient: "linear(to-r, blue.300, purple.300)",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.45)"  // Slightly more intense shadow on hover
-            }}
-          >
-            Try Demo Now 🕹️
-          </Button>
-          <RankedGameObjectsModal isButtonDisabled={false} playerId={playerId}/>
+            <Button
+              onClick={handlePlayClick}
+              as="a"
+              bgGradient="linear(to-r, blue.200, purple.200)"  // Lighter gradient
+              color="black"  // Adjusted text color for better visibility on light background
+              size="lg"
+              height="60px"
+              width="250px"
+              fontSize="18px"
+              boxShadow="0 2px 4px rgba(0, 0, 0, 0.3)"  // Lighter and softer shadow
+              _hover={{
+                bgGradient: "linear(to-r, blue.300, purple.300)",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.45)"  // Slightly more intense shadow on hover
+              }}
+            >
+              Try Demo Now 🕹️
+            </Button>
+            <RankedGameObjectsModal isButtonDisabled={false} playerId={playerId} />
           </VStack>
           <Link href="https://docs.2bttns.com/getting-started/quick-start" passHref>
             <Button
@@ -90,6 +82,28 @@ export const HeroSection = ({ playerId }: HeroSectionProps) => {
           </Link>
         </Stack>
       </VStack>
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Instructions</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Text fontWeight={"bold"} mb={5}>
+            Using 2bttns to Recommend Career Paths
+            </Text>
+            <Text>
+            This demo uses 2bttns to gather your preferences and recommend career paths in tech based on your preferred combinations of traits.
+            </Text>
+          </ModalBody>
+          <ModalFooter>
+            <Button colorScheme="green" mr={3} onClick={handlePlayNowClick}>
+              Play Now
+            </Button>
+            <Button variant="ghost" onClick={onClose}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Center>
   );
 };
