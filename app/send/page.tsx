@@ -7,7 +7,8 @@ import {
   Button,
   VStack,
   useToast,
-  Input
+  Input,
+  Text
 } from "@chakra-ui/react";
 import Head from "next/head";
 import type { NextPage } from "next";
@@ -89,6 +90,7 @@ const Home: NextPage = () => {
           <Heading as="h1" size="lg" textAlign="center">
             Send us feedback
           </Heading>
+          <Text>Anything you share will go directly to the team.</Text>
           <Box
             bg="white"
             p={6}
