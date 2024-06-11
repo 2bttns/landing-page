@@ -3,30 +3,31 @@ import { Box, Flex, Button } from '@chakra-ui/react';
 import Image from 'next/image';
 import SocialButtons from '../SocialButtons/socialButtons';
 import Link from 'next/link';
-import EmailForm from '../EmailForm/EmailForm';
 import EarlyAccessModal from '../EarlyAccessModal/EarlyAccessModal';
 import { track } from '@vercel/analytics';
 
 const NavBar = () => {
-    const handleAboutClick = () => {
-        track("About Button Clicked");
-    };
+  const handleAboutClick = () => {
+    track("About Button Clicked");
+  };
 
-    return (
-        <Box bg="transparent" px={4}>
-            <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-                <Flex alignItems={'center'}>
-                    <Box px="10px">
-                        <Image src="/2gif.gif" alt="logo" width="50" height="50" priority />
-                    </Box>
-                    <Link href="https://docs.2bttns.com" passHref target="_blank">
-                        <Button variant={'ghost'} onClick={handleAboutClick}>About</Button>
-                    </Link>
-                </Flex>
+  return (
+    <Box bg="transparent" px={4}>
+      <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+        <Flex alignItems={'center'}>
+          <Box px="10px">
+            <Link href={"/"}>
+              <Image src="/2gif.gif" alt="logo" width="75" height="75" priority />
+            </Link>
+          </Box>
+          <Link href="https://docs.2bttns.com" passHref target="_blank">
+            <Button variant={'ghost'} onClick={handleAboutClick}>About</Button>
+          </Link>
+        </Flex>
 
-                <Flex>
-                    <SocialButtons />
-                    {/* <Link href="mailto:amer@2bttns.com" passHref target="_blank">
+        <Flex>
+          <SocialButtons />
+          {/* <Link href="mailto:amer@2bttns.com" passHref target="_blank">
             <Button
               bg="#506CD4"
               color={"white"}
@@ -47,11 +48,11 @@ const NavBar = () => {
               Share Feedback
             </Button>
           </Link> */}
-                    <EarlyAccessModal />
-                </Flex>
-            </Flex>
-        </Box>
-    );
+          <EarlyAccessModal />
+        </Flex>
+      </Flex>
+    </Box>
+  );
 };
 
 export default NavBar;
