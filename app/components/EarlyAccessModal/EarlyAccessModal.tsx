@@ -42,7 +42,7 @@ const EarlyAccessModal: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    track('Submitted_Email');
+    track('New Email Added to Newsletter');
     sendToDiscord(email);
     setEmail('');
     onClose();
