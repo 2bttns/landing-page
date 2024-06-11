@@ -2,6 +2,7 @@ import { VStack, Heading, Text, Button, Center, Stack, useBreakpointValue, Modal
 import Link from 'next/link';
 import play2bttnsDemo from '@/app/lib/play2bttnsDemo';
 import RankedGameObjectsModal from '@/app/lib/RankedGameObjectsModal.client';
+import { track } from '@vercel/analytics';
 
 interface HeroSectionProps {
   playerId: string;
@@ -11,15 +12,22 @@ export const HeroSection = ({ playerId }: HeroSectionProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handlePlayClick = () => {
+    track("Try Demo Button Clicked")
     onOpen();
   };
 
   const handlePlayNowClick = () => {
+    track("Play Now Button Clicked")
     play2bttnsDemo({
       callbackUrl: window.location.href,
       playerId,
     });
   };
+
+  const handleQuickStartClick = () => {
+    track("Quick Start Button Clicked");
+  };
+
 
   const stackDirection = useBreakpointValue<'column' | 'row'>({ base: 'column', md: 'row' });
 
@@ -76,6 +84,7 @@ export const HeroSection = ({ playerId }: HeroSectionProps) => {
                 bgGradient: "linear(to-r, blue.300, purple.300)",
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.45)"  // Slightly more intense shadow on hover
               }}
+              onClick={handleQuickStartClick}
             >
               Quick Start →
             </Button>
@@ -90,10 +99,10 @@ export const HeroSection = ({ playerId }: HeroSectionProps) => {
           <ModalCloseButton />
           <ModalBody>
             <Text fontWeight={"bold"} mb={5}>
-            Using 2bttns to Recommend Career Paths
+              Using 2bttns to Recommend Career Paths
             </Text>
             <Text>
-            This demo uses 2bttns to gather your preferences and recommend career paths in tech based on your preferred combinations of traits.
+              This demo uses 2bttns to gather your preferences and recommend career paths in tech based on your preferred combinations of traits.
             </Text>
           </ModalBody>
           <ModalFooter>

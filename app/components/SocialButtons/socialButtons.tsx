@@ -1,6 +1,7 @@
 import { IconButton, HStack, Text, Box } from '@chakra-ui/react';
 import { FaGithub, FaDiscord } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
+import { track } from '@vercel/analytics';
 
 const SocialButtons = () => {
   const [githubStars, setGithubStars] = useState(null);
@@ -11,6 +12,14 @@ const SocialButtons = () => {
       .then((data) => setGithubStars(data.stargazers_count))
       .catch((error) => console.error('Error fetching GitHub stars:', error));
   }, []);
+
+  const handleGithubClick = () => {
+    track("GitHub Button Clicked");
+  };
+
+  const handleDiscordClick = () => {
+    track("Discord Button Clicked");
+  };
 
   return (
     <HStack spacing={4}>
@@ -34,7 +43,7 @@ const SocialButtons = () => {
               width="24px"
               height="24px"
               fontSize="11px"
-              boxShadow="0 2px 4px rgba(0, 0, 0, 0.2)" 
+              boxShadow="0 2px 4px rgba(0, 0, 0, 0.2)"
             >
               {githubStars || '...'}
             </Box>
@@ -50,6 +59,7 @@ const SocialButtons = () => {
           top: "4px",
           boxShadow: "0 2px #555"
         }}
+        onClick={handleGithubClick}
       />
 
       <IconButton
@@ -68,6 +78,7 @@ const SocialButtons = () => {
           top: "4px",
           boxShadow: "0 2px #555"
         }}
+        onClick={handleDiscordClick}
       />
     </HStack>
   );
