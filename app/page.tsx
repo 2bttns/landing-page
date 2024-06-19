@@ -8,7 +8,7 @@ import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { HeroSection } from "./components/HeroSection/HeroSection";  // Make sure to create and import HeroSection component
-import NavBar from "./components/Navbar/Navbar";
+import NavBar from "./components/NavbarHome/Navbar";
 
 const PLAYER_ID_LOCAL_STORAGE_KEY = "player_id";
 
@@ -18,7 +18,7 @@ const Home: NextPage = () => {
   useEffect(() => {
     const playerIdFromStorage = localStorage.getItem(PLAYER_ID_LOCAL_STORAGE_KEY);
     if (!playerIdFromStorage) {
-      console.info("Generating new demo player_id...");
+      console.log("Generating new demo player_id...");
       const generatedId = uuidv4();
       localStorage.setItem(PLAYER_ID_LOCAL_STORAGE_KEY, generatedId);
       setPlayerId(generatedId);

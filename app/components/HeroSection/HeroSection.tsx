@@ -1,5 +1,6 @@
 import { VStack, Heading, Text, Button, Center, Stack, useBreakpointValue, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure } from '@chakra-ui/react';
 import Link from 'next/link';
+import Image from 'next/image'
 import play2bttnsDemo from '@/app/lib/play2bttnsDemo';
 import RankedGameObjectsModal from '@/app/lib/RankedGameObjectsModal.client';
 import { track } from '@vercel/analytics';
@@ -34,7 +35,7 @@ export const HeroSection = ({ playerId }: HeroSectionProps) => {
   return (
     <Center height="100vh" width="100vw">
       <VStack
-        spacing={10}
+        spacing={7}
         alignItems="center"
         justifyContent="center"
         p={12}
@@ -42,6 +43,7 @@ export const HeroSection = ({ playerId }: HeroSectionProps) => {
         maxWidth="container.xl"
         width="100%"
       >
+        <Image src={"/2gif.gif"} alt={"2bttns Company logo"} width={150} height={150}/>
         <Heading fontSize={{ base: "42px", md: "60px" }} textAlign="center" fontWeight="bold">
           Personalize Content & Experiences
         </Heading>
@@ -51,7 +53,7 @@ export const HeroSection = ({ playerId }: HeroSectionProps) => {
         </Text>
         <Stack direction={stackDirection} spacing={4}>
           <VStack>
-            <Button
+            {/* <Button
               onClick={handlePlayClick}
               as="a"
               bgGradient="linear(to-r, blue.200, purple.200)"  // Lighter gradient
@@ -68,7 +70,7 @@ export const HeroSection = ({ playerId }: HeroSectionProps) => {
             >
               Try Demo Now 🕹️
             </Button>
-            <RankedGameObjectsModal isButtonDisabled={false} playerId={playerId} />
+            <RankedGameObjectsModal isButtonDisabled={false} playerId={playerId} /> */}
           </VStack>
           <Link href="https://docs.2bttns.com/getting-started/quick-start" passHref>
             <Button
